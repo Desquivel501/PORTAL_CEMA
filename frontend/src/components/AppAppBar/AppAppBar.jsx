@@ -12,7 +12,7 @@ import Drawer from '@mui/material/Drawer';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 // import Sitemark from './SitemarkIcon';
-import Logo from '../../assets/logo_cema.jpg'
+import Logo from '../../assets/logo_cema2.png'
 import AppBarOption from './AppBarOption';
 import SearchIcon from '@mui/icons-material/Search';
 import FishIcon from '../../assets/Icons/Fish';
@@ -20,59 +20,61 @@ import HomeIcon from '@mui/icons-material/Home';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import InfoIcon from '@mui/icons-material/Info';
 import { ListItemIcon, ListItemText } from '@mui/material';
-
-const StyledToolbar = styled(Toolbar)(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  flexShrink: 0,
-  borderRadius: `calc(${theme.shape.borderRadius}px + 8px)`,
-  backdropFilter: 'blur(24px)',
-  border: '1px solid',
-  borderColor: (theme.vars || theme).palette.divider,
-  backgroundColor: theme.vars
-    ? `rgba(${theme.vars.palette.background.defaultChannel} / 0.4)`
-    : alpha(theme.palette.background.default, 0.4),
-  boxShadow: (theme.vars || theme).shadows[1],
-  padding: '8px 12px',
-}));
-
-const StyledButton = styled(Button)(({ theme }) => ({
-  borderRadius: "8px",
-  padding: '8px 12px',
-  textTransform: 'none',
-  color: 'black',
-  fontSize: '1rem',
-  fontWeight: 500,
-  fontFamily: '"Inter", sans-serif', 
-  '&.MuiButton-contained': {  
-    background: '#0a4c43', 
-    color: 'white',  
-    '&:hover': {
-      background: '#062d28',  
-    },
-  },
-  '&.MuiButton-text': {  
-    color: 'black',  
-    '&:hover': {
-      background: '#0a4c43',  
-    },
-  },
-  '&.MuiButton-outlined': {  
-    borderColor: '#0a4c43'
-  },
-}));
-
-const opciones = ["Inicio", "Buscar", "Listado", "Galeria", "Contáctanos"]
-
-// const [activeOption, setActiveOption] = useState("Inicio")
-
-const checkActive = (option) => {
-  return false
-}
+import { hexToRgba } from "../../utils/colorUtils";
+import { useTheme } from "../../context/ThemeContext";
 
 const AppAppBar = () => {
+  const { colors } = useTheme();
   const [open, setOpen] = React.useState(false);
+
+  const StyledToolbar = styled(Toolbar)(({ theme }) => ({
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flexShrink: 0,
+    borderRadius: `calc(${theme.shape.borderRadius}px + 8px)`,
+    backdropFilter: 'blur(24px)',
+    border: '1px solid',
+    borderColor: (theme.vars || theme).palette.divider,
+    backgroundColor: hexToRgba(colors.surface, 0.8),
+    boxShadow: (theme.vars || theme).shadows[1],
+    padding: '8px 12px',
+  }));
+
+  const StyledButton = styled(Button)(({ theme }) => ({
+    borderRadius: "8px",
+    padding: '8px 12px',
+    textTransform: 'none',
+    // color: 'black',
+    fontSize: '1rem',
+    fontWeight: 500,
+    fontFamily: '"Inter", sans-serif', 
+    
+    '&.MuiButton-contained': {  
+      background: colors.primary, 
+      color: "white",  
+      '&:hover': {
+        background: colors.primaryLight,  
+      },
+    },
+    '&.MuiButton-text': {  
+      color: colors.text,  
+      '&:hover': {
+        background: colors.surface,  
+      },
+    },
+    '&.MuiButton-outlined': {  
+      borderColor: colors.primary,
+    },
+  }));
+
+  const opciones = ["Inicio", "Buscar", "Listado", "Galeria", "Contáctanos"]
+
+  // const [activeOption, setActiveOption] = useState("Inicio")
+
+  const checkActive = (option) => {
+    return false
+  }
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
@@ -81,7 +83,7 @@ const AppAppBar = () => {
   return (
     <AppBar
       position="fixed"
-      enableColorOnDark
+      // enableColorOnDark
       sx={{
         boxShadow: 0,
         bgcolor: 'transparent',
@@ -92,12 +94,11 @@ const AppAppBar = () => {
       <Container maxWidth="lg">
         <StyledToolbar variant="dense" disableGutters>
           <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', px: 0 }}>
-            {/* <Sitemark /> */}
 
             <Box
               component="img"
               sx={{
-                height: 50, width: "auto", mr: 2
+                height: 40, width: "auto", mr: 2
               }}
               alt="Logo_cema"
               src={Logo}
@@ -105,31 +106,31 @@ const AppAppBar = () => {
 
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
               <AppBarOption 
-                icon={<HomeIcon fontSize="large"/>}
+                icon={<HomeIcon fontSize="medium"/>}
                 text="Inicio"
-                active={checkActive("Inicio")}
+                active={true}
                 onClick={null}
               />
               <AppBarOption 
-                icon={<SearchIcon fontSize="large"/>}
+                icon={<SearchIcon fontSize="medium"/>}
                 text="Buscar"
                 active={checkActive("Inicio")}
                 onClick={null}
               />
               <AppBarOption 
-                icon={<FishIcon fontSize="large" color={false ? "#0a4c43": "#5b5b5c"}/>}
+                icon={<FishIcon fontSize="medium" color={false ? colors.primary: colors.text}/>}
                 text="Listado"
                 active={checkActive("Inicio")}
                 onClick={null}
               />
               <AppBarOption 
-                icon={<CollectionsIcon fontSize="large"/>}
+                icon={<CollectionsIcon fontSize="medium"/>}
                 text="Galeria"
                 active={checkActive("Inicio")}
                 onClick={null}
               />
               <AppBarOption 
-                icon={<InfoIcon fontSize="large"/>}
+                icon={<InfoIcon fontSize="medium"/>}
                 text="Contáctanos"
                 active={checkActive("Inicio")}
                 onClick={null}
