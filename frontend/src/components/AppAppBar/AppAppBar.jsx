@@ -88,7 +88,7 @@ const AppAppBar = () => {
         boxShadow: 0,
         bgcolor: 'transparent',
         backgroundImage: 'none',
-        mt: 'calc(var(--template-frame-height, 0px) + 28px)',
+        mt: 'calc(var(--template-frame-height, 0px) + 15px)',
       }}
     >
       <Container maxWidth="lg">
@@ -110,12 +110,14 @@ const AppAppBar = () => {
                 text="Inicio"
                 active={true}
                 onClick={null}
+                route={"/"}
               />
               <AppBarOption 
                 icon={<SearchIcon fontSize="medium"/>}
                 text="Buscar"
                 active={checkActive("Inicio")}
                 onClick={null}
+                route={"/search"}
               />
               <AppBarOption 
                 icon={<FishIcon fontSize="medium" color={false ? colors.primary: colors.text}/>}

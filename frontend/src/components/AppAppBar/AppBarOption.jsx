@@ -6,11 +6,12 @@ import Logo from '../../assets/logo_cema.jpg'
 import { useTheme } from "../../context/ThemeContext";
 
 
-const AppBarOption = ({ text, icon, onClick, active = false}) => {
+const AppBarOption = ({ text, icon, onClick, active = false, route = ""}) => {
   const { colors } = useTheme();
 
   return (
-    <Box
+    <a href={route}>
+      <Box
       sx={{
         flexGrow: 1, display: 'flex', alignItems: 'center',
         // flexDirection: "column",
@@ -23,7 +24,8 @@ const AppBarOption = ({ text, icon, onClick, active = false}) => {
         // color: "info",
         // bgcolor: 'white',
         '&:hover': {
-          bgcolor: '#e6edec',
+          bgcolor: colors.primaryLighter,
+          color: colors.text
         },  
         gap: 0.6
       }}
@@ -32,6 +34,7 @@ const AppBarOption = ({ text, icon, onClick, active = false}) => {
       {icon}
       {text}
     </Box>
+    </a>
   );
 }
 
