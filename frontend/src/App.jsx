@@ -12,6 +12,7 @@ import AppAppBar from './components/AppAppBar/AppAppBar'
 import { useTheme } from './context/ThemeContext'
 import { HomePage } from './pages/HomePage/HomePage';
 import { SearchPage } from './pages/SearchPage/SearchPage';
+import { ContactPage } from './pages/ContactPage/ContactPage';
 
 // 
 function App() {
@@ -20,11 +21,12 @@ function App() {
 
   return (
     <>
-      <AppAppBar/>
       <Router>
+        <AppAppBar/>
         <Routes>
           <Route path={"/"} element={<HomePage/>}/>
-          <Route path={"/search"} element={<SearchPage/>}/>
+          <Route path={"/buscar"} element={<SearchPage/>}/>
+          <Route path={"/contacto"} element={<ContactPage/>}/>
         </Routes>
       </Router>
     </>

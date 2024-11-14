@@ -21,8 +21,6 @@ const AppBarOption = ({ text, icon, onClick, active = false, route = ""}) => {
         borderRadius: 2,
         padding: '8px 12px',
         color: active ? colors.primary: colors.text,
-        // color: "info",
-        // bgcolor: 'white',
         '&:hover': {
           bgcolor: colors.primaryLighter,
           color: colors.text

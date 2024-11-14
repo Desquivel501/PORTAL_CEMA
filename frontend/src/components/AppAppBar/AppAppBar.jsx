@@ -22,9 +22,11 @@ import InfoIcon from '@mui/icons-material/Info';
 import { ListItemIcon, ListItemText } from '@mui/material';
 import { hexToRgba } from "../../utils/colorUtils";
 import { useTheme } from "../../context/ThemeContext";
+import { useLocation } from 'react-router-dom'
 
 const AppAppBar = () => {
   const { colors } = useTheme();
+  const location = useLocation();
   const [open, setOpen] = React.useState(false);
 
   const StyledToolbar = styled(Toolbar)(({ theme }) => ({
@@ -73,7 +75,7 @@ const AppAppBar = () => {
   // const [activeOption, setActiveOption] = useState("Inicio")
 
   const checkActive = (option) => {
-    return false
+    return location.pathname == option
   }
 
   const toggleDrawer = (newOpen) => () => {
@@ -108,34 +110,35 @@ const AppAppBar = () => {
               <AppBarOption 
                 icon={<HomeIcon fontSize="medium"/>}
                 text="Inicio"
-                active={true}
+                active={checkActive("/")}
                 onClick={null}
                 route={"/"}
               />
               <AppBarOption 
                 icon={<SearchIcon fontSize="medium"/>}
                 text="Buscar"
-                active={checkActive("Inicio")}
+                active={checkActive("/buscar")}
                 onClick={null}
-                route={"/search"}
+                route={"/buscar"}
               />
               <AppBarOption 
                 icon={<FishIcon fontSize="medium" color={false ? colors.primary: colors.text}/>}
                 text="Listado"
-                active={checkActive("Inicio")}
+                active={checkActive("/listado")}
                 onClick={null}
               />
               <AppBarOption 
                 icon={<CollectionsIcon fontSize="medium"/>}
                 text="Galeria"
-                active={checkActive("Inicio")}
+                active={checkActive("/galeria")}
                 onClick={null}
               />
               <AppBarOption 
                 icon={<InfoIcon fontSize="medium"/>}
                 text="Contáctanos"
-                active={checkActive("Inicio")}
+                active={checkActive("/contacto")}
                 onClick={null}
+                route={"/contacto"}
               />
             </Box>
           </Box>
