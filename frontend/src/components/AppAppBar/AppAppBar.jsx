@@ -111,38 +111,35 @@ const AppAppBar = () => {
                 icon={<HomeIcon fontSize="medium"/>}
                 text="Inicio"
                 active={checkActive("/")}
-                onClick={null}
                 route={"/"}
               />
               <AppBarOption 
                 icon={<SearchIcon fontSize="medium"/>}
                 text="Buscar"
                 active={checkActive("/buscar")}
-                onClick={null}
                 route={"/buscar"}
               />
               <AppBarOption 
                 icon={<FishIcon fontSize="medium" color={false ? colors.primary: colors.text}/>}
                 text="Listado"
                 active={checkActive("/listado")}
-                onClick={null}
               />
               <AppBarOption 
                 icon={<CollectionsIcon fontSize="medium"/>}
-                text="Galeria"
+                text="Galería"
                 active={checkActive("/galeria")}
-                onClick={null}
+                route={"/galeria"}
               />
               <AppBarOption 
                 icon={<InfoIcon fontSize="medium"/>}
                 text="Contáctanos"
                 active={checkActive("/contacto")}
-                onClick={null}
                 route={"/contacto"}
               />
             </Box>
           </Box>
-          <Box
+
+          {/* <Box
             sx={{
               display: { xs: 'none', md: 'flex' },
               gap: 1,
@@ -155,8 +152,8 @@ const AppAppBar = () => {
             <StyledButton color="primary" variant="contained" size="small">
               Sign up
             </StyledButton>
-            {/* <ColorModeIconDropdown /> */}
-          </Box>
+          </Box> */}
+          
           <Box sx={{ display: { xs: 'flex', md: 'none' }, gap: 1 }}>
             {/* <ColorModeIconDropdown size="medium" /> */}
             <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
@@ -213,19 +210,6 @@ const AppAppBar = () => {
                     <InfoIcon fontSize="small" />
                   </ListItemIcon>
                   <ListItemText>Contáctanos</ListItemText>
-                </MenuItem>
-
-
-                <Divider sx={{ my: 3 }} />
-                <MenuItem>
-                  <StyledButton color="primary" variant="contained" fullWidth>
-                    Sign up
-                  </StyledButton>
-                </MenuItem>
-                <MenuItem>
-                  <StyledButton color="primary" variant="outlined" fullWidth>
-                    Sign in
-                  </StyledButton>
                 </MenuItem>
               </Box>
             </Drawer>

@@ -13,8 +13,8 @@ import { useTheme } from './context/ThemeContext'
 import { HomePage } from './pages/HomePage/HomePage';
 import { SearchPage } from './pages/SearchPage/SearchPage';
 import { ContactPage } from './pages/ContactPage/ContactPage';
+import { GaleryPage } from './pages/GaleryPage/GaleryPage';
 
-// 
 function App() {
   const { colors, toggleTheme } = useTheme();
   const [count, setCount] = useState(0)
@@ -27,6 +27,7 @@ function App() {
           <Route path={"/"} element={<HomePage/>}/>
           <Route path={"/buscar"} element={<SearchPage/>}/>
           <Route path={"/contacto"} element={<ContactPage/>}/>
+          <Route path={"/galeria"} element={<GaleryPage/>}/>
         </Routes>
       </Router>
     </>

@@ -15,8 +15,7 @@ e-mail: cema@usac.edu.gt
 
 Whatsapp: (502) 4123-2024
 
-Facebook: Centro de Estudios del Mar y Acuicultura -CEMA-
-`
+Facebook: Centro de Estudios del Mar y Acuicultura -CEMA-`
 
 export const ContactPage = () => {
   
