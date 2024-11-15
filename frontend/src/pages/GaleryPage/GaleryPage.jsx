@@ -30,6 +30,7 @@ export const GaleryPage = () => {
               <GaleryResult
                 image={item.image}
                 common_name={item.common_name}
+                data={item}
               />
             ))
           }
