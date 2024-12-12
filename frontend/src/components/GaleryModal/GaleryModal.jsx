@@ -1,35 +1,35 @@
 import * as React from 'react';
-import {Box, Button, Typography, Modal, Grid2 } from '@mui/material';
+import {Box, Button, Typography, Modal, Grid2, IconButton } from '@mui/material';
 import { borderRadius } from '@mui/system';
 import { useTheme } from "../../context/ThemeContext";
 import { alpha, styled } from '@mui/material/styles';
+import CancelIcon from '@mui/icons-material/Cancel';
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: "60vw",
-//   height: "60vh",
-  bgcolor: 'background.paper',
-//   boxShadow: 24,
-  p: 4,
-  borderRadius: 6
-};
 
 export const GaleryModal = ({open, setOpen, data, route }) => {
     const { colors } = useTheme();
   const handleClose = () => setOpen(false);
 
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: "60vw",
+  //   height: "60vh",
+    bgcolor: colors.backgroundSecondary,
+    boxShadow: 24,
+    p: 4,
+    borderRadius: 6
+  };
+
   const StyledButton = styled(Button)(({ theme }) => ({
     borderRadius: "8px",
     padding: '8px 12px',
     textTransform: 'none',
-    // color: 'black',
     fontSize: '1rem',
     fontWeight: 500,
     fontFamily: '"Inter", sans-serif', 
-    
     '&.MuiButton-contained': {  
       background: colors.primary, 
       color: "white",  
@@ -53,10 +53,17 @@ export const GaleryModal = ({open, setOpen, data, route }) => {
       <Modal
         open={open}
         onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
+        aria-labelledby="modal-fotografia"
       >
         <Box sx={style}>
+
+            <IconButton aria-label="close"
+                sx={{ position: "fixed", top: 3, right: 3, zIndex: 2000 }}
+                onClick={handleClose}
+            >
+                <CancelIcon />
+            </IconButton>
+
             <Grid2 container direction={"row"} columns={12}>
                 <Grid2
                     item
@@ -70,7 +77,6 @@ export const GaleryModal = ({open, setOpen, data, route }) => {
                         src={data.image}
                     />
                 </Grid2>
-
                 <Grid2
                     item
                     size={{ xs: 4, md: 4 }}

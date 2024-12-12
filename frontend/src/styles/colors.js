@@ -10,6 +10,7 @@ const colors = {
       secondaryDark: "rgba(192, 120, 72, 0.9)",  // 90% opacity for borders
   
       background: "#ffffff",          // Light background
+      backgroundSecondary: "#e5e5e5",
       surface: "rgba(241, 245, 244, 0.95)", // Slightly transparent surface color
       text: "#000000",                // Main text color
       textSecondary: "rgba(74, 74, 74, 0.7)", // 70% opacity for secondary text
@@ -25,6 +26,7 @@ const colors = {
       secondaryDark: "rgba(192, 120, 72, 0.9)",  // 90% opacity for borders
   
       background: "#121212",          // Dark background
+      backgroundSecondary: "#292929",
       surface: "rgba(30, 30, 30, 0.95)", // Slightly transparent surface for cards
       text: "#ffffff",                // Main text color (light for dark mode)
       textSecondary: "rgba(176, 176, 176, 0.7)", // 70% opacity for secondary text
