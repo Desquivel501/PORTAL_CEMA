@@ -19,15 +19,20 @@ import FishIcon from '../../assets/Icons/Fish';
 import HomeIcon from '@mui/icons-material/Home';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import InfoIcon from '@mui/icons-material/Info';
-import { ListItemIcon, ListItemText } from '@mui/material';
+import { ListItemIcon, ListItemText, useMediaQuery } from '@mui/material';
 import { hexToRgba } from "../../utils/colorUtils";
 import { useTheme } from "../../context/ThemeContext";
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+
+import { routes as routesData } from "../../routes/index_routes";
+import DrawerOption from "./DrawerOption";
+
 
 const AppAppBar = () => {
   const { colors } = useTheme();
   const location = useLocation();
   const [open, setOpen] = React.useState(false);
+  const isMobile = useMediaQuery('(max-width:600px)');
 
   const StyledToolbar = styled(Toolbar)(({ theme }) => ({
     display: 'flex',
@@ -41,6 +46,14 @@ const AppAppBar = () => {
     backgroundColor: hexToRgba(colors.surface, 0.8),
     boxShadow: (theme.vars || theme).shadows[1],
     padding: '8px 12px',
+  }));
+
+  const StyledDrawer = styled(Drawer)(({ theme }) => ({
+    '& .MuiDrawer-paper': {
+      top: 'var(--template-frame-height, 0px)',
+      backgroundColor: colors.surface,
+      color: colors.text,
+    },
   }));
 
   const StyledButton = styled(Button)(({ theme }) => ({
@@ -70,10 +83,6 @@ const AppAppBar = () => {
     },
   }));
 
-  const opciones = ["Inicio", "Buscar", "Listado", "Galeria", "Contáctanos"]
-
-  // const [activeOption, setActiveOption] = useState("Inicio")
-
   const checkActive = (option) => {
     return location.pathname == option
   }
@@ -93,83 +102,44 @@ const AppAppBar = () => {
         mt: 'calc(var(--template-frame-height, 0px) + 15px)',
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth={false}>
         <StyledToolbar variant="dense" disableGutters>
           <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', px: 0 }}>
 
-            <Box
-              component="img"
-              sx={{
-                height: 40, width: "auto", mr: 2
-              }}
-              alt="Logo_cema"
-              src={Logo}
-            />
+            <Link to="/">
+              <Box
+                component="img"
+                sx={{
+                  height: 40, width: "auto", mr: 2
+                }}
+                alt="Logo_cema"
+                src={Logo}
+              />
+            </Link>
 
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-              <AppBarOption 
-                icon={<HomeIcon fontSize="medium"/>}
-                text="Inicio"
-                active={checkActive("/")}
-                route={"/"}
-              />
-              <AppBarOption 
-                icon={<SearchIcon fontSize="medium"/>}
-                text="Buscar"
-                active={checkActive("/buscar")}
-                route={"/buscar"}
-              />
-              <AppBarOption 
-                icon={<FishIcon fontSize="medium" color={false ? colors.primary: colors.text}/>}
-                text="Listado"
-                active={checkActive("/listado")}
-              />
-              <AppBarOption 
-                icon={<CollectionsIcon fontSize="medium"/>}
-                text="Galería"
-                active={checkActive("/galeria")}
-                route={"/galeria"}
-              />
-              <AppBarOption 
-                icon={<InfoIcon fontSize="medium"/>}
-                text="Contáctanos"
-                active={checkActive("/contacto")}
-                route={"/contacto"}
-              />
+              {routesData.map((route, index) => (
+                <AppBarOption 
+                  key={index}
+                  icon={route.icon}
+                  text={route.text}
+                  active={checkActive(route.route)}
+                  route={route.route}
+                />
+              ))}
             </Box>
           </Box>
 
-          {/* <Box
-            sx={{
-              display: { xs: 'none', md: 'flex' },
-              gap: 1,
-              alignItems: 'center',
-            }}
-          >
-            <StyledButton color="primary" variant="text" size="small">
-              Sign in
-            </StyledButton>
-            <StyledButton color="primary" variant="contained" size="small">
-              Sign up
-            </StyledButton>
-          </Box> */}
-          
-          <Box sx={{ display: { xs: 'flex', md: 'none' }, gap: 1 }}>
-            {/* <ColorModeIconDropdown size="medium" /> */}
+          <Box sx={{ display: { xs: 'flex', md: 'none' }, gap: 1 }} >
             <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
               <MenuIcon />
             </IconButton>
-            <Drawer
+            <StyledDrawer
               anchor="top"
               open={open}
               onClose={toggleDrawer(false)}
-              PaperProps={{
-                sx: {
-                  top: 'var(--template-frame-height, 0px)',
-                },
-              }}
             >
-              <Box sx={{ p: 2, backgroundColor: 'background.default' }}>
+              <Box sx={{ p: 2 }}>
                 <Box
                   sx={{
                     display: 'flex',
@@ -180,39 +150,22 @@ const AppAppBar = () => {
                     <CloseRoundedIcon />
                   </IconButton>
                 </Box>
-
-                <MenuItem>
-                  <ListItemIcon>
-                    <HomeIcon fontSize="small" />
-                  </ListItemIcon>
-                  <ListItemText>Inicio</ListItemText>
-                </MenuItem>
-                <MenuItem>
-                  <ListItemIcon>
-                    <SearchIcon fontSize="small" />
-                  </ListItemIcon>
-                  <ListItemText>Buscar</ListItemText>
-                </MenuItem>
-                <MenuItem>
-                  <ListItemIcon>
-                    <FishIcon fontSize="small" color={false ? "#0a4c43": "#5b5b5c"}/>
-                  </ListItemIcon>
-                  <ListItemText>Listado</ListItemText>
-                </MenuItem>
-                <MenuItem>
-                  <ListItemIcon>
-                    <CollectionsIcon fontSize="small" />
-                  </ListItemIcon>
-                  <ListItemText>Galeria</ListItemText>
-                </MenuItem>
-                <MenuItem>
-                  <ListItemIcon>
-                    <InfoIcon fontSize="small" />
-                  </ListItemIcon>
-                  <ListItemText>Contáctanos</ListItemText>
-                </MenuItem>
+                
+                <Divider />
+                {
+                  routesData.map((route, index) => (
+                    <DrawerOption 
+                      key={index}
+                      icon={route.icon}
+                      text={route.text}
+                      active={checkActive(route.route)}
+                      route={route.route}
+                      toggleDrawer={toggleDrawer}
+                    />
+                  ))
+                }
               </Box>
-            </Drawer>
+            </StyledDrawer>
           </Box>
         </StyledToolbar>
       </Container>

@@ -68,7 +68,7 @@ export const SearchPage = () => {
   return (
 
     <Container
-        maxWidth="lg"
+        maxWidth={false}
         component="main"
         sx={{ display: 'flex', flexDirection: 'column', mt: 8, gap: 4 }}
     >

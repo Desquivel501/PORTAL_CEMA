@@ -14,6 +14,10 @@ import { HomePage } from './pages/HomePage/HomePage';
 import { SearchPage } from './pages/SearchPage/SearchPage';
 import { ContactPage } from './pages/ContactPage/ContactPage';
 import { GaleryPage } from './pages/GaleryPage/GaleryPage';
+import { AnimalPage } from './pages/AnimalPage/AnimalPage';
+import 'leaflet/dist/leaflet.css';
+import 'react-leaflet-markercluster/styles'
+import StyledScrollbar from './styles/StyledScrollbar';
 
 function App() {
   const { colors, toggleTheme } = useTheme();
@@ -21,6 +25,7 @@ function App() {
 
   return (
     <>
+      <StyledScrollbar/>
       <Router>
         <AppAppBar/>
         <Routes>
@@ -28,6 +33,7 @@ function App() {
           <Route path={"/buscar"} element={<SearchPage/>}/>
           <Route path={"/contacto"} element={<ContactPage/>}/>
           <Route path={"/galeria"} element={<GaleryPage/>}/>
+          <Route path={"/animal/:id"} element={<AnimalPage/>}/>
         </Routes>
       </Router>
     </>

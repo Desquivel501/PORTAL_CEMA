@@ -4,13 +4,14 @@ import { Box } from '@mui/material';
 // import Sitemark from './SitemarkIcon';
 import Logo from '../../assets/logo_cema.jpg'
 import { useTheme } from "../../context/ThemeContext";
+import { Link } from 'react-router-dom';
 
 
 const AppBarOption = ({ text, icon, onClick, active = false, route = ""}) => {
   const { colors } = useTheme();
 
   return (
-    <a href={route}>
+    <Link to={route}>
       <Box
       sx={{
         flexGrow: 1, display: 'flex', alignItems: 'center',
@@ -32,7 +33,7 @@ const AppBarOption = ({ text, icon, onClick, active = false, route = ""}) => {
       {icon}
       {text}
     </Box>
-    </a>
+    </Link>
   );
 }
 

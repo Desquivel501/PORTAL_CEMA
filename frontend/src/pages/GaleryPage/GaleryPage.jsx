@@ -9,9 +9,9 @@ export const GaleryPage = () => {
   return (
 
     <Container
-        maxWidth="lg"
-        component="main"
-        sx={{ display: 'flex', flexDirection: 'column', mt: 10, gap: 4 }}
+      maxWidth={false}
+      component="main"
+      sx={{ display: 'flex', flexDirection: 'column', mt: 10, gap: 4 }}
     >
       <Grid2 container direction={"row"} columns={12}>
 

@@ -20,7 +20,10 @@ export const GaleryResult = ({ image, common_name, scientific_name, data }) => {
         sx={{
             flexGrow: 1, display: 'flex', alignItems: 'flex-start',  flexDirection: "column",
             gap: 0.6, border: 1, boxShadow: 2,
-            borderRadius: 5, p: 1, mb: 1, borderColor:colors.textSecondary
+            borderRadius: 5, p: 1, mb: 1, borderColor:colors.textSecondary,
+            ":hover": {
+               cursor: "pointer",
+            }
         }}
     >
         <Box
