@@ -36,13 +36,13 @@ export const AnimalPage = () => {
       name: "Satellite View",
       url: "http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}",
       subdomains: ["mt0", "mt1", "mt2", "mt3"],
-      attribution: '&copy; <a href="https://about.google/brand-resource-center/products-and-services/geo-guidelines/">Google</a>',
+      attribution: '&copy; <a href="https://www.google.com/help/terms_maps/">Google</a>',
     },
     terrain: {
       name: "Satellite View",
       url: 'http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}',
       subdomains: ["mt0", "mt1", "mt2", "mt3"],
-      attribution: '&copy; <a href="https://about.google/brand-resource-center/products-and-services/geo-guidelines/">Google</a>',
+      attribution: '&copy; <a href="https://www.google.com/help/terms_maps/">Google</a>',
     },
   };
 

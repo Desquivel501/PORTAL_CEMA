@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { Box, Typography, Grid2, Button, Icon, CircularProgress, Container } from "@mui/material";
 import { getLoremIpsum } from "../../utils/loremIpsumGenerator";
-import { aquaticAnimals } from "./MockData";
+import { aquaticAnimals } from "../../assets/MockData";
 import { GaleryResult } from "../../components/GaleryResult/GaleryResult";
 
 export const GaleryPage = () => {

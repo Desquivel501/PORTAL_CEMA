@@ -50,3 +50,60 @@ export const aquaticAnimals = [
     { common_name: "Killer Whale", scientific_name: "Orcinus orca", image: "https://placehold.co/600x400?text=Killer+Whale" },
     { common_name: "Red Lionfish", scientific_name: "Pterois volitans", image: "https://placehold.co/600x400?text=Red+Lionfish" }
 ];
+
+export const filos = [
+    { id: 1, label: "Chordata" },
+    { id: 2, label: "Mollusca" },
+    { id: 3, label: "Arthropoda" },
+    { id: 4, label: "Cnidaria" },
+    { id: 5, label: "Echinodermata" },
+    { id: 6, label: "Plantae" },
+    { id: 7, label: "Phaeophyta" }
+  ];
+
+export const grupos = [
+    { id: 1, label: "Peces" },
+    { id: 2, label: "Mamíferos marinos" },
+    { id: 3, label: "Moluscos" },
+    { id: 4, label: "Crustáceos" },
+    { id: 5, label: "Algas" },
+    { id: 6, label: "Corales" },
+    { id: 7, label: "Anfibios" },
+    { id: 8, label: "Plantas acuáticas" }
+  ];
+  
+export const clases = [
+    { id: 1, label: "Actinopterygii" },
+    { id: 2, label: "Chondrichthyes" },
+    { id: 3, label: "Mammalia" },
+    { id: 4, label: "Gastropoda" },
+    { id: 5, label: "Bivalvia" },
+    { id: 6, label: "Malacostraca" },
+    { id: 7, label: "Anthozoa" },
+    { id: 8, label: "Magnoliopsida" },
+    { id: 9, label: "Phaeophyceae" }
+  ];
+  
+export const ordenes = [
+    { id: 1, label: "Perciformes" },
+    { id: 2, label: "Rajiformes" },
+    { id: 3, label: "Cetacea" },
+    { id: 4, label: "Decapoda" },
+    { id: 5, label: "Littorinimorpha" },
+    { id: 6, label: "Laminariales" },
+    { id: 7, label: "Hydrocharitales" },
+    { id: 8, label: "Scleractinia" }
+  ];
+  
+export const familias = [
+    { id: 1, label: "Serranidae" },
+    { id: 2, label: "Pomacentridae" },
+    { id: 3, label: "Delphinidae" },
+    { id: 4, label: "Balaenopteridae" },
+    { id: 5, label: "Portunidae" },
+    { id: 6, label: "Mytilidae" },
+    { id: 7, label: "Fucaceae" },
+    { id: 8, label: "Nymphaeaceae" },
+    { id: 9, label: "Rhizophoraceae" }
+  ];
+  

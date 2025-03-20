@@ -14,11 +14,6 @@ import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 // import Sitemark from './SitemarkIcon';
 import Logo from '../../assets/logo_cema2.png'
 import AppBarOption from './AppBarOption';
-import SearchIcon from '@mui/icons-material/Search';
-import FishIcon from '../../assets/Icons/Fish';
-import HomeIcon from '@mui/icons-material/Home';
-import CollectionsIcon from '@mui/icons-material/Collections';
-import InfoIcon from '@mui/icons-material/Info';
 import { ListItemIcon, ListItemText, useMediaQuery } from '@mui/material';
 import { hexToRgba } from "../../utils/colorUtils";
 import { useTheme } from "../../context/ThemeContext";
