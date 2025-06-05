@@ -6,9 +6,10 @@ import Logo from '../../assets/logo_cema.jpg'
 import { useTheme } from "../../context/ThemeContext";
 import { GaleryModal } from '../GaleryModal/GaleryModal';
 import { useState } from 'react';
+import { StyledButton } from '../SyledButton/StyledButton';
 
 
-export const GaleryResult = ({ image, common_name, scientific_name, data }) => {
+export const GaleryResult = ({ image, common_name, scientific_name, data, showData }) => {
   const { colors } = useTheme();
   const [open, setOpen] = useState(false);
 
@@ -61,7 +62,7 @@ export const GaleryResult = ({ image, common_name, scientific_name, data }) => {
             </Grid2>
         </Box>
         <GaleryModal
-            open={open} setOpen={setOpen} data={data}
+            open={open} setOpen={setOpen} data={data} showData={showData}
         />
     </Grid2>
 

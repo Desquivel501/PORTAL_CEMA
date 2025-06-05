@@ -15,6 +15,10 @@ import 'react-leaflet-markercluster/styles'
 import StyledScrollbar from './styles/StyledScrollbar';
 import FormularioAnimalPage from './pages/FormularioAnimalPage/FormularioAnimalPage';
 import FormularioRegistroPage from "./pages/FormularioRegistroPage/FormularioRegistroPage";
+import BottomBar from "./components/Bottombar/BottomBar";
+import { ProfilePage } from "./pages/ProfilePage/ProfilePage";
+import SignupPage from "./pages/SignupPage/SignupPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
 
 function App() {
   return (
@@ -30,7 +34,11 @@ function App() {
           <Route path={"/animal/:id"} element={<AnimalPage/>}/>
           <Route path={"/animal/new"} element={<FormularioAnimalPage/>}/>
           <Route path={"/registro/new"} element={<FormularioRegistroPage/>}/>
+          <Route path={"/mi-perfil"} element={<ProfilePage/>}/>
+          <Route path={"/signup"} element={<SignupPage/>}/>
+          <Route path={"/login"} element={<LoginPage/>}/>
         </Routes>
+        <BottomBar/>
       </Router>
     </>
   )

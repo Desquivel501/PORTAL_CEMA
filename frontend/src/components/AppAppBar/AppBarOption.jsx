@@ -7,13 +7,14 @@ import { useTheme } from "../../context/ThemeContext";
 import { Link } from 'react-router-dom';
 
 
-const AppBarOption = ({ text, icon, onClick, active = false, route = ""}) => {
+const AppBarOption = ({ text, icon, onClick, active = false, route = "", sx}) => {
   const { colors } = useTheme();
 
   return (
     <Link to={route}>
       <Box
       sx={{
+        ...sx,
         flexGrow: 1, display: 'flex', alignItems: 'center',
         // flexDirection: "column",
         fontSize: '1rem',

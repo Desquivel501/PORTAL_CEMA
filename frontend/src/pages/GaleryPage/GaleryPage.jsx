@@ -9,7 +9,7 @@ export const GaleryPage = () => {
   return (
 
     <Container
-      maxWidth={false}
+      maxWidth={"xl"}
       component="main"
       sx={{ display: 'flex', flexDirection: 'column', mt: 10, gap: 4 }}
     >
@@ -31,6 +31,7 @@ export const GaleryPage = () => {
                 image={item.image}
                 common_name={item.common_name}
                 data={item}
+                showData={true}
               />
             ))
           }

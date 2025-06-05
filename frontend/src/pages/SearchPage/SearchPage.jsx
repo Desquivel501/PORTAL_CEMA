@@ -60,15 +60,18 @@ export const SearchPage = () => {
   // }));
 
   useEffect(() => {
-    console.log(fuse.search(search))
-    setResults(fuse.search(search).map((match) => match?.item))
+    if(!search) {
+      setResults(aquaticAnimals)
+    } else {
+      setResults(fuse.search(search).map((match) => match?.item))
+    }
   }, [search])
 
   
   return (
 
     <Container
-        maxWidth={false}
+        maxWidth={"xl"}
         component="main"
         sx={{ display: 'flex', flexDirection: 'column', mt: 8, gap: 4 }}
     >
@@ -117,7 +120,7 @@ export const SearchPage = () => {
         <Grid2 item size={{ xs: 12, md: 12 }}
           sx={{
             overflowY:"auto",
-            maxHeight: "70vh",
+            // maxHeight: "70vh",
             width: "-webkit-fill-available",
             pr: 2,
           }}

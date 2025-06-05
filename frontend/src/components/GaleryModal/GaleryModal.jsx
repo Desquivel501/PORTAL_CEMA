@@ -101,8 +101,8 @@ export const GaleryModal = ({open, setOpen, data, showData = true, route }) => {
                     <Typography variant="text" color={colors.primary}>
                         Fecha: {data.date || "DD/MM/YYYY"}
                     </Typography>
-
-                    { showData ?? (
+                    
+                    { showData && (
                       <StyledButton color="primary" variant="contained"
                           sx={{
                               my: 2, alignSelf:"center"

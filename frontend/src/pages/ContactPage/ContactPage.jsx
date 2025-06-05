@@ -22,7 +22,7 @@ export const ContactPage = () => {
   return (
 
     <Container
-      maxWidth={false}
+      maxWidth={"xl"}
       component="main"
       sx={{ display: 'flex', flexDirection: 'column', mt: 10, gap: 4 }}
     >

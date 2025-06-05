@@ -85,7 +85,7 @@ const FormularioRegistroPage = () => {
 
   return (
     <Container
-        maxWidth={false}
+        maxWidth={"xl"}
         component="main"
         sx={{ display: 'flex', flexDirection: 'column', mt: 10, gap: 4, mb: 4, alignItems: 'center' }}
     >

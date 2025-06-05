@@ -42,10 +42,23 @@ const FormularioAnimalPage = () => {
     };
 
   return (
+    // <Container
+    //     maxWidth={"xl"}
+    //     component="main"
+    //     sx={{ display: 'flex', flexDirection: 'column', mt: 10, gap: 4, mb: 4, alignItems: 'center' }}
+    // >
     <Container
-        maxWidth={false}
+        maxWidth="xl"
         component="main"
-        sx={{ display: 'flex', flexDirection: 'column', mt: 10, gap: 4, mb: 4, alignItems: 'center' }}
+        sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            minHeight: '80vh',
+            pt: 10,
+            gap: 4,
+            mb: 4,
+            alignItems: 'center',
+        }}
     >
         <Box width="80%">
             <Typography variant="h4" fontWeight="bold" color={colors.primary}>Formulario</Typography>

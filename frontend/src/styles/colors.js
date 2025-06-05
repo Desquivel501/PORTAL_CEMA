@@ -14,6 +14,7 @@ const colors = {
       surface: "rgba(241, 245, 244, 0.95)", // Slightly transparent surface color
       text: "#000000",                // Main text color
       textSecondary: "rgba(74, 74, 74, 0.7)", // 70% opacity for secondary text
+      textOposite: "#ffffff", // Text color for dark backgrounds
 
       // Map marker colors
       marker: "#ff6747",  // Standard marker color (bright red-orange)
@@ -40,6 +41,7 @@ const colors = {
       surface: "rgba(30, 30, 30, 0.95)", // Slightly transparent surface for cards
       text: "#ffffff",                // Main text color (light for dark mode)
       textSecondary: "rgba(176, 176, 176, 0.7)", // 70% opacity for secondary text
+      textOposite: "#000000", // Text color for dark backgrounds
 
       // Map marker colors
       marker: "#ff6747",  // Standard marker color (bright red-orange)

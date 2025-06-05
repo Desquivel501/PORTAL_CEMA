@@ -21,6 +21,7 @@ import { Link, useLocation } from 'react-router-dom'
 
 import { routes as routesData } from "../../routes/index_routes";
 import DrawerOption from "./DrawerOption";
+import PersonIcon from '@mui/icons-material/Person';
 
 
 const AppAppBar = () => {
@@ -39,8 +40,9 @@ const AppAppBar = () => {
     border: '1px solid',
     borderColor: (theme.vars || theme).palette.divider,
     backgroundColor: hexToRgba(colors.surface, 0.8),
-    boxShadow: (theme.vars || theme).shadows[1],
+    boxShadow: (theme.vars || theme).shadows[4],
     padding: '8px 12px',
+    // px: 10,
   }));
 
   const StyledDrawer = styled(Drawer)(({ theme }) => ({
@@ -97,7 +99,7 @@ const AppAppBar = () => {
         mt: 'calc(var(--template-frame-height, 0px) + 15px)',
       }}
     >
-      <Container maxWidth={false}>
+      <Container maxWidth={"xl"}>
         <StyledToolbar variant="dense" disableGutters>
           <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', px: 0 }}>
 
@@ -121,11 +123,21 @@ const AppAppBar = () => {
                   active={checkActive(route.route)}
                   route={route.route}
                 />
-              ))}
+              ))} 
+            </Box>
+            <Box sx={{ display: { xs: 'none', md: 'flex' } }} flexGrow={1} />
+            <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+              <AppBarOption 
+                  sx={{ justifySelf: 'flex-end' }}
+                  icon={<PersonIcon fontSize="medium"/>}
+                  text="Mi Perfil"
+                  active={false}
+                  route="/mi-perfil"
+              />
             </Box>
           </Box>
 
-          <Box sx={{ display: { xs: 'flex', md: 'none' }, gap: 1 }} >
+          <Box sx={{ display: { xs: 'flex', md: 'none' }}} >
             <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
               <MenuIcon />
             </IconButton>
@@ -146,7 +158,6 @@ const AppAppBar = () => {
                   </IconButton>
                 </Box>
                 
-                <Divider />
                 {
                   routesData.map((route, index) => (
                     <DrawerOption 
@@ -159,6 +170,14 @@ const AppAppBar = () => {
                     />
                   ))
                 }
+                <Divider />
+                <DrawerOption 
+                  icon={<PersonIcon fontSize="medium"/>}
+                  text="Mi Perfil"
+                  active={false}
+                  route="/mi-perfil"
+                  toggleDrawer={toggleDrawer}
+                />
               </Box>
             </StyledDrawer>
           </Box>

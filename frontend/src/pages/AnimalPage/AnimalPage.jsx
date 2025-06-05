@@ -86,9 +86,9 @@ export const AnimalPage = () => {
   return (
 
     <Container
-        maxWidth={false}
+        maxWidth={"xl"}
         component="main"
-        sx={{ display: 'flex', flexDirection: 'column', mt: 10, gap: 4 }}
+        sx={{ display: 'flex', flexDirection: 'column', my: 10, gap: 4 }}
     >
       <Grid2 container direction={"row"} columns={12}>
 
