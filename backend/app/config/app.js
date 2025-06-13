@@ -4,7 +4,8 @@ const fileUpload = require('express-fileupload');
 const {
   responseFormatter, 
   routeNotFound
-} = require('../middlewares/apiFormatResponse')
+} = require('../middlewares/apiFormatResponse');
+const { RutasUser } = require('../routes/users');
 const db = require('./database/mysql');
 
 class Server{
@@ -41,9 +42,11 @@ class Server{
   }
   
   routes(){
-    global.route = require("express").Router();;   
-    this.app.use("/api", authenticateToken,[route]);
-    RutasBase(route);
+    global.routes_users = require("express").Router();
+
+    this.app.use("/api/user", authenticateToken,[routes_users]);
+
+    RutasUser(route);
   }
 
   listen() {        
@@ -66,15 +69,5 @@ class Server{
 
 }
 
-// const app = express()
-// const port = 3000
-
-// app.get('/', (req, res) => {
-//   res.send('Hello World!')
-// })
-
-// app.listen(port, () => {
-//   console.log(`Example app listening on port ${port}`)
-// })
 
 module.exports = Server;
