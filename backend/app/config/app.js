@@ -5,7 +5,7 @@ const {
   responseFormatter, 
   routeNotFound
 } = require('../middlewares/apiFormatResponse')
-
+const db = require('./database/mysql');
 
 class Server{
   constructor(){
@@ -14,11 +14,20 @@ class Server{
 
     global.console_log = require("./helpers/console")._console_log;
 
+    this.databaseConnection();
+
     // this.server = require("http").createServer(this.app);  
   }
 
   databaseConnection(){
+    global.mysqlConnection = db;
 
+    mysqlConnection.raw('SELECT 1')
+      .then(() => console.log('Database connected successfully'))
+      .catch((err) => {
+        console.error('Database connection failed:', err);
+        process.exit(1); // Exit the app if db connection fails
+      });
   }
 
   middleware(){
@@ -68,4 +77,4 @@ class Server{
 //   console.log(`Example app listening on port ${port}`)
 // })
 
-module.exports = app;
+module.exports = Server;
