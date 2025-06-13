@@ -1,10 +1,11 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "npx nodemon index.js"
+    "test": "npx nodemon app.js --verbose"
   },
+  "nodemonConfig": { "ext": "js", "ignore": ["*.test.ts", "db/*", "logs/*"], "delay": "2" },
   "author": "Derek Esquivel",
   "license": "ISC",
   "description": "",

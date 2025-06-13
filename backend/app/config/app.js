@@ -14,10 +14,15 @@ class Server{
     this.port = process.env.PORT || 3000;
 
     global.console_log = require("./helpers/console")._console_log;
+    global.CustomError = require("./helpers/error").CustomError;
 
-    this.databaseConnection();
-
-    // this.server = require("http").createServer(this.app);  
+    this.server = require('http').createServer(this.app);
+    this.databaseConnection(); 
+    this.middleware();
+    this.routes();
+    this.listen();
+    this.middlewareErrores();
+   
   }
 
   databaseConnection(){
@@ -44,15 +49,15 @@ class Server{
   routes(){
     global.routes_users = require("express").Router();
 
-    this.app.use("/api/user", authenticateToken,[routes_users]);
+    this.app.use("/api/user",[routes_users]);
 
-    RutasUser(route);
+    RutasUser(routes_users);
   }
 
   listen() {        
-    this.server.on("uncaughtException", function (err) {
-        console_log({ err });
-    });
+    // this.server.on("uncaughtException", function (err) {
+    //     console_log({ err });
+    // });
 
     this.server.listen(this.port, () => {
       console_log("Servidor corriendo en puerto", this.port);
@@ -60,11 +65,11 @@ class Server{
   } 
 
   middlewareErrores(){
-    // Middleware  formato de respuesta depara rutas no encontradas
-    this.app.use(routeNotFound);
+    // // Middleware  formato de respuesta depara rutas no encontradas
+    // this.app.use(routeNotFound);
 
-    // Middleware para formato de respuesta de errores
-    this.app.use(handleError);                
+    // // Middleware para formato de respuesta de errores
+    // this.app.use(handleError);                
   }
 
 }
